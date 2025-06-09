@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Invoice Email Form</title>
+
+    <!-- Office JavaScript API -->
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+
+    <!-- Fluent UI -->
+    <link rel="stylesheet" href="https://res-1.cdn.office.net/files/fabric-cdn-prod_20230815.002/office-ui-fabric-core/11.1.0/css/fabric.min.css" />
+
+    <!-- Template styles -->
+    <link href="taskpane.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <form id="emailForm">
+        <h2>Invoice Email Form</h2>
+
+        <!-- Number of Categories -->
+        <label for="noCategories">No. Categories:</label>
+        <select id="noCategories" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+
+        <!-- Team -->
+        <label for="team">Team:</label>
+        <select id="team" required>
+            <option value="Operations">Operations</option>
+            <option value="Programmes">Programmes</option>
+        </select>
+
+        <!-- Supplier -->
+        <label for="supplier">Supplier:</label>
+        <input type="text" id="supplier" placeholder="Enter supplier name" required>
+
+        <!-- Currency -->
+        <label for="currency">Currency:</label>
+        <select id="currency" required>
+            <option value="GBP">GBP - British Pound</option>
+            <option value="USD">USD - US Dollar</option>
+            <option value="EUR">EUR - Euro</option>
+            <option value="JPY">JPY - Japanese Yen</option>
+            <option value="AUD">AUD - Australian Dollar</option>
+            <option value="CAD">CAD - Canadian Dollar</option>
+            <option value="CHF">CHF - Swiss Franc</option>
+            <option value="CNY">CNY - Chinese Yuan</option>
+            <option value="HKD">HKD - Hong Kong Dollar</option>
+            <option value="NZD">NZD - New Zealand Dollar</option>
+            <option value="SEK">SEK - Swedish Krona</option>
+            <option value="KRW">KRW - South Korean Won</option>
+            <option value="SGD">SGD - Singapore Dollar</option>
+            <option value="NOK">NOK - Norwegian Krone</option>
+            <option value="MXN">MXN - Mexican Peso</option>
+            <option value="INR">INR - Indian Rupee</option>
+            <option value="RUB">RUB - Russian Ruble</option>
+            <option value="ZAR">ZAR - South African Rand</option>
+            <option value="TRY">TRY - Turkish Lira</option>
+            <option value="BRL">BRL - Brazilian Real</option>
+            <option value="TWD">TWD - Taiwan Dollar</option>
+            <option value="DKK">DKK - Danish Krone</option>
+            <option value="PLN">PLN - Polish Zloty</option>
+            <option value="THB">THB - Thai Baht</option>
+            <option value="IDR">IDR - Indonesian Rupiah</option>
+            <option value="HUF">HUF - Hungarian Forint</option>
+            <option value="CZK">CZK - Czech Koruna</option>
+            <option value="ILS">ILS - Israeli Shekel</option>
+            <option value="SAR">SAR - Saudi Riyal</option>
+            <option value="MYR">MYR - Malaysian Ringgit</option>
+            <option value="PHP">PHP - Philippine Peso</option>
+            <option value="AED">AED - UAE Dirham</option>
+            <option value="COP">COP - Colombian Peso</option>
+            <option value="CLP">CLP - Chilean Peso</option>
+            <option value="PKR">PKR - Pakistani Rupee</option>
+            <option value="EGP">EGP - Egyptian Pound</option>
+            <option value="VND">VND - Vietnamese Dong</option>
+            <option value="BDT">BDT - Bangladeshi Taka</option>
+            <option value="NGN">NGN - Nigerian Naira</option>
+            <option value="KWD">KWD - Kuwaiti Dinar</option>
+            <option value="QAR">QAR - Qatari Riyal</option>
+            <option value="MAD">MAD - Moroccan Dirham</option>
+            <option value="UAH">UAH - Ukrainian Hryvnia</option>
+            <option value="RON">RON - Romanian Leu</option>
+            <option value="DZD">DZD - Algerian Dinar</option>
+            <option value="KES">KES - Kenyan Shilling</option>
+            <option value="ARS">ARS - Argentine Peso</option>
+            <!-- Add more currencies as needed -->
+        </select>
+
+        <!-- Invoice Date -->
+        <label for="invoiceDate">Invoice Date:</label>
+        <input type="date" id="invoiceDate" required>
+
+        <!-- Requester -->
+        <label for="requester">Requester:</label>
+        <input type="text" id="requester" placeholder="Enter requester name" required>
+
+        <!-- Approved By -->
+        <label for="approvedBy">Approved By:</label>
+        <input type="text" id="approvedBy" placeholder="Enter approver's name" required>
+
+        <!-- Account Code -->
+        <div id="categoriesContainer"></div>
+
+        <!-- Amount <label for="amount">Amount:</label>
+        <input type="number" id="amount" placeholder="Enter amount" required> -->
+
+        <!-- US Payment -->
+        <label for="usPayment">US Payment:</label>
+        <select id="usPayment" required>
+            <option value="Yes">Yes</option>
+            <option value="No" selected>No</option>
+        </select>
+
+        <label for="directDebit">Is this a direct debit payment?:</label>
+        <select id="directDebit" required>
+            <option value="Yes">Yes</option>
+            <option value="No" selected>No</option>
+        </select>
+
+        <label for="requirePayment">Does this invoice require payment?:</label>
+        <select id="requirePayment" required>
+            <option value="Yes" selected>Yes</option>
+            <option value="No">No</option>
+        </select>
+
+        <!-- Additional Details -->
+        <label for="additionalDetails">Additional Details:</label>
+        <textarea id="additionalDetails" placeholder="Enter any additional details"></textarea>
+
+        <!-- Other fields already present -->
+        <label for="attachments">Attachments:</label>
+        <input type="file" id="attachments" name="attachments" multiple>
+
+        <!-- Submit Button -->
+        <button type="submit">Generate Email</button>
+    </form>
+</body>
+
+</html>
